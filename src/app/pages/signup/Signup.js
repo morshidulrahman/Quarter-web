@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
+import { ImageUpload } from "../../utils/Images";
 
 const Register = () => {
   const { GoogleLogin, user, setUser, CreateUser, Updateuser, loading } =
@@ -37,7 +38,8 @@ const Register = () => {
   };
 
   const onSubmit = async (data) => {
-    const { name, email, password, photourl } = data;
+    const { name, email, password, image } = data;
+    const photourl = await ImageUpload(image[0]);
     try {
       const result = await CreateUser(email, password);
       await Updateuser(name, photourl);
@@ -129,6 +131,7 @@ const Register = () => {
                 id="image"
                 name="image"
                 accept="image/*"
+                {...register("image", { required: true })}
               />
             </div>
           </div>

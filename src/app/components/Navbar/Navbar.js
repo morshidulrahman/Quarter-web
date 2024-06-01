@@ -15,7 +15,7 @@ const Navbar = () => {
         <Container>
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             <Link to="/">
-              <img src="/logo.png" alt="logo" width="150" height="120" />
+              <img src="/logo.png" alt="logo" width="140" height="100" />
             </Link>
 
             <Menuitems />
@@ -23,21 +23,19 @@ const Navbar = () => {
             <div className="relative">
               <div
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-4 md:py-1 md:px-2  rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer hover:shadow-md transition"
+                className="   rounded-full border-neutral-200 flex flex-row items-center gap-3 cursor-pointer hover:shadow-md transition w-8 h-8"
               >
                 <div className="block md:hidden">
                   <AiOutlineMenu size={28} />
                 </div>
                 <div className="hidden md:block">
                   <img
-                    className="rounded-full"
+                    className="rounded-full w-8 h-8"
                     referrerPolicy="no-referrer"
                     src={
-                      user && user.photoURL ? user.photoURL : "/user-logo.jpg"
+                      user && user.photoURL ? user.photoURL : "/user-icon.png"
                     }
                     alt="profile"
-                    height="30"
-                    width="30"
                   />
                 </div>
               </div>
