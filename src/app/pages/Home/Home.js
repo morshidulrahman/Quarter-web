@@ -3,7 +3,11 @@ import Container from "../../shared/Container";
 import Hero from "../../components/Hero/Hero";
 
 const Home = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
 
 export default Home;
