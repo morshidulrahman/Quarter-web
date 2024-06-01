@@ -3,10 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import Container from "../../shared/Container";
 import { useState } from "react";
 import Menuitems from "../../shared/Menuitems";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const user = "";
+  const { user, Logout } = useAuth();
 
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -62,7 +63,10 @@ const Navbar = () => {
                           Dashboard
                         </Link>
 
-                        <div className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer">
+                        <div
+                          onClick={() => Logout()}
+                          className="px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer"
+                        >
                           Logout
                         </div>
                       </>
