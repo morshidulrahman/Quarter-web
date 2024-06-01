@@ -1,12 +1,9 @@
 import React from "react";
 import Container from "../../shared/Container";
+import Hero from "../../components/Hero/Hero";
 
 const Home = () => {
-  return (
-    <Container>
-      <h1>helo</h1>
-    </Container>
-  );
+  return <Hero />;
 };
 
 export default Home;
