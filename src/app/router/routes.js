@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/signup/Signup";
+import Appertment from "../pages/appertment/Appertment";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/appertments",
+        element: <Appertment />,
       },
     ],
   },

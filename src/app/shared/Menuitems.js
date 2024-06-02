@@ -15,7 +15,7 @@ const Menuitems = () => {
         Home
       </NavLink>
       <NavLink
-        to="/appartment"
+        to="/appertments"
         className={({ isActive }) =>
           isActive
             ? " text-lg font-semibold px-4  py-3  text-[#ff5a3c]"
