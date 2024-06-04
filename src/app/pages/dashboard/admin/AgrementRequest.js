@@ -5,7 +5,11 @@ import AgrementTableRow from "../../../dashboard/table/AgrementTableRow";
 import Loader from "../../../shared/Loader";
 
 const AgrementRequest = () => {
-  const { data: agrementList = [], isLoading } = useQuery({
+  const {
+    data: agrementList = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["agrementReq"],
     queryFn: async () => {
       const { data } = await axios(
@@ -110,7 +114,11 @@ const AgrementRequest = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {agrementList?.map((data) => (
-                    <AgrementTableRow agrements={data} key={data._id} />
+                    <AgrementTableRow
+                      agrements={data}
+                      key={data._id}
+                      refetch={refetch}
+                    />
                   ))}
                 </tbody>
               </table>
