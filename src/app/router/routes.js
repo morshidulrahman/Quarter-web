@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/signup/Signup";
 import Appertment from "../pages/appertment/Appertment";
+import DashboardLayout from "../layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,16 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <h1>hello i ma sdasdlhf</h1>,
+      },
+    ],
   },
 ]);
 
