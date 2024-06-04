@@ -53,6 +53,7 @@ const Appertment = () => {
           <AppertmentCard key={data._id} appertment={data} />
         ))}
       </div>
+      {/* pagination  */}
       <div className="py-10">
         <div className="flex items-center justify-center">
           <button
