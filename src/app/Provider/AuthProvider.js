@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import auth from "../firebase/firebase";
+import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -43,9 +44,26 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const saveUser = async (user) => {
+    const currentUser = {
+      email: user?.email,
+      role: "user",
+      status: "checked",
+    };
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_API_URL}/users`,
+      currentUser
+    );
+
+    return data;
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        saveUser(currentUser);
+      }
       setloading(false);
     });
     return () => {
