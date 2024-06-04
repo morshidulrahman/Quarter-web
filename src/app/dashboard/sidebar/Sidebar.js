@@ -4,6 +4,13 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { AiOutlineBars } from "react-icons/ai";
 import { FcSettings } from "react-icons/fc";
+import { FaAmazonPay } from "react-icons/fa";
+import { FaMoneyCheckDollar } from "react-icons/fa6";
+import { MdAnnouncement, MdPayments } from "react-icons/md";
+import { SiContactlesspayment } from "react-icons/si";
+import UserMenu from "../Menu/UserMenu";
+import AdminMenu from "../Menu/AdminMenu";
+import MemberMenu from "../Menu/MemberMenu";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
@@ -54,18 +61,9 @@ const Sidebar = () => {
 
           <div className="flex flex-col justify-between flex-1 mt-2">
             <nav>
-              <NavLink
-                to={"/dashboard/profile"}
-                end
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-[#ff593cf4]   hover:text-white ${
-                    isActive ? "bg-[#ff593cf4] text-white" : "text-gray-600"
-                  }`
-                }
-              >
-                <FcSettings className="w-5 h-5" />
-                <span className="mx-4 font-medium">My Profile</span>
-              </NavLink>
+              {/* <UserMenu />
+              <MemberMenu /> */}
+              <AdminMenu />
             </nav>
           </div>
         </div>
