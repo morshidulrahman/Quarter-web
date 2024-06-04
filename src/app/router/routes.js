@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Signup from "../pages/signup/Signup";
 import Appertment from "../pages/appertment/Appertment";
 import DashboardLayout from "../layout/DashboardLayout";
+import AgrementRequest from "../pages/dashboard/admin/AgrementRequest";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <h1>hello i ma sdasdlhf</h1>,
+      },
+      {
+        path: "agreement-request",
+        element: <AgrementRequest />,
       },
     ],
   },

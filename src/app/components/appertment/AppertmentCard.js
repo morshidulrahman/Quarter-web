@@ -21,7 +21,7 @@ const AppertmentCard = ({ appertment }) => {
     rent,
   } = appertment;
 
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: [user?.email],
     enabled: !loading && !!user?.email,
     queryFn: async () => {
@@ -48,11 +48,13 @@ const AppertmentCard = ({ appertment }) => {
       blockName,
       rent,
       apartmentName,
+      time: Date.now(),
     };
     try {
       const { data } = await axiosSecure.post("/agreementlists", agrementInfo);
       console.log(data);
       toast.success("agreements successfully");
+      refetch();
     } catch (e) {
       toast.error(e.message);
     }

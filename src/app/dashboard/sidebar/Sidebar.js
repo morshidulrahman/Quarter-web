@@ -54,7 +54,12 @@ const Sidebar = () => {
           <div>
             <div className="w-full hidden md:flex px-4 py-2 shadow-sm rounded-lg justify-center items-center   mx-auto">
               <Link to="/">
-                <img src="./logo.png" alt="logo" width="100" height="100" />
+                <img
+                  src="https://i.ibb.co/mG15cWG/logo.png"
+                  alt="logo"
+                  width="100"
+                  height="100"
+                />
               </Link>
             </div>
           </div>

@@ -15,7 +15,12 @@ const Navbar = () => {
         <Container>
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
             <Link to="/">
-              <img src="/logo.png" alt="logo" width="140" height="100" />
+              <img
+                src="https://i.ibb.co/mG15cWG/logo.png"
+                alt="logo"
+                width="140"
+                height="100"
+              />
             </Link>
 
             <Menuitems />
