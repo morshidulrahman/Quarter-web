@@ -16,7 +16,7 @@ const AdminMenu = () => {
       <MenuItems
         icon={FaUserCog}
         label="Manage Members"
-        address="manage-users"
+        address="manage-members"
       />
       <MenuItems
         icon={FaFileContract}

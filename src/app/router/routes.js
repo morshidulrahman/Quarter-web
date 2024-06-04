@@ -6,6 +6,7 @@ import Signup from "../pages/signup/Signup";
 import Appertment from "../pages/appertment/Appertment";
 import DashboardLayout from "../layout/DashboardLayout";
 import AgrementRequest from "../pages/dashboard/admin/AgrementRequest";
+import ManageMember from "../pages/dashboard/admin/ManageMember";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "agreement-request",
         element: <AgrementRequest />,
+      },
+      {
+        path: "manage-members",
+        element: <ManageMember />,
       },
     ],
   },
