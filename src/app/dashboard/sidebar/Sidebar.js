@@ -7,11 +7,12 @@ import { AiOutlineBars } from "react-icons/ai";
 import UserMenu from "../Menu/UserMenu";
 import AdminMenu from "../Menu/AdminMenu";
 import MemberMenu from "../Menu/MemberMenu";
+import useRole from "../../hooks/useRole";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
-
+  const [role] = useRole();
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
@@ -28,7 +29,12 @@ const Sidebar = () => {
         <div>
           <div className="block cursor-pointer p-4 font-bold">
             <Link to="/">
-              <img src="./logo.png" alt="logo" width="100" height="100" />
+              <img
+                src="https://i.ibb.co/mG15cWG/logo.png"
+                alt="logo"
+                width="100"
+                height="100"
+              />
             </Link>
           </div>
         </div>
@@ -62,9 +68,9 @@ const Sidebar = () => {
 
           <div className="flex flex-col justify-between flex-1 mt-2">
             <nav>
-              <UserMenu />
-              <MemberMenu />
-              <AdminMenu />
+              {role === "user" && <UserMenu />}
+              {role === "member" && <MemberMenu />}
+              {role === "admin" && <AdminMenu />}
             </nav>
           </div>
         </div>

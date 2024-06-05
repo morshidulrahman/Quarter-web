@@ -10,6 +10,8 @@ import ManageMember from "../pages/dashboard/admin/ManageMember";
 import ManageCuppon from "../pages/dashboard/admin/ManageCuppon";
 import MakeAnnoucement from "../pages/dashboard/admin/MakeAnnoucement";
 import AnnounceMents from "../dashboard/announcement/AnnounceMents";
+import UserProfile from "../pages/dashboard/user/UserProfile";
+import MemberProfile from "../pages/dashboard/member/MemberProfile";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
       {
         path: "announcement",
         element: <AnnounceMents />,
+      },
+      {
+        path: "user-profile",
+        element: <UserProfile />,
+      },
+      {
+        path: "member-profile",
+        element: <MemberProfile />,
       },
     ],
   },

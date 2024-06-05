@@ -9,7 +9,7 @@ const UserMenu = () => {
       <MenuItems
         icon={TbUserPentagon}
         label="My Profile"
-        address="admin-profile"
+        address="user-profile"
       />
       <MenuItems
         icon={MdAnnouncement}

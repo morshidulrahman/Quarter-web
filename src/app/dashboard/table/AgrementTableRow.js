@@ -5,7 +5,7 @@ import axios from "axios";
 import useAxiosCommon from "../../hooks/useAxiosCommon";
 
 const AgrementTableRow = ({ agrements, refetch }) => {
-  const { name, email, floorNo, apartmentNo, blockName, rent, time, _id } =
+  const { name, email, floorNo, apartmentNo, blockName, rent, time } =
     agrements;
   const agrementTime = TimeChange(time);
   const axiosCommon = useAxiosCommon();
@@ -20,7 +20,7 @@ const AgrementTableRow = ({ agrements, refetch }) => {
       apartmentNo,
       blockName,
       rent,
-      time,
+      time: Date.now(),
     };
     const { data } = await axiosCommon.post("/membersinfo", userInfo);
     return data;
