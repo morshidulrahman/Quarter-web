@@ -3,11 +3,7 @@ import { GrLogout } from "react-icons/gr";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { AiOutlineBars } from "react-icons/ai";
-import { FcSettings } from "react-icons/fc";
-import { FaAmazonPay } from "react-icons/fa";
-import { FaMoneyCheckDollar } from "react-icons/fa6";
-import { MdAnnouncement, MdPayments } from "react-icons/md";
-import { SiContactlesspayment } from "react-icons/si";
+
 import UserMenu from "../Menu/UserMenu";
 import AdminMenu from "../Menu/AdminMenu";
 import MemberMenu from "../Menu/MemberMenu";

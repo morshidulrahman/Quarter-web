@@ -7,6 +7,8 @@ import Appertment from "../pages/appertment/Appertment";
 import DashboardLayout from "../layout/DashboardLayout";
 import AgrementRequest from "../pages/dashboard/admin/AgrementRequest";
 import ManageMember from "../pages/dashboard/admin/ManageMember";
+import ManageCuppon from "../pages/dashboard/admin/ManageCuppon";
+import MakeAnnoucement from "../pages/dashboard/admin/MakeAnnoucement";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "manage-members",
         element: <ManageMember />,
+      },
+      {
+        path: "manage-cupons",
+        element: <ManageCuppon />,
+      },
+      {
+        path: "make-announcement",
+        element: <MakeAnnoucement />,
       },
     ],
   },
