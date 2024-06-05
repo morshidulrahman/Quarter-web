@@ -9,6 +9,7 @@ import AgrementRequest from "../pages/dashboard/admin/AgrementRequest";
 import ManageMember from "../pages/dashboard/admin/ManageMember";
 import ManageCuppon from "../pages/dashboard/admin/ManageCuppon";
 import MakeAnnoucement from "../pages/dashboard/admin/MakeAnnoucement";
+import AnnounceMents from "../dashboard/announcement/AnnounceMents";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "make-announcement",
         element: <MakeAnnoucement />,
+      },
+      {
+        path: "announcement",
+        element: <AnnounceMents />,
       },
     ],
   },

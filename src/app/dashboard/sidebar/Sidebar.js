@@ -62,8 +62,8 @@ const Sidebar = () => {
 
           <div className="flex flex-col justify-between flex-1 mt-2">
             <nav>
-              {/* <UserMenu />
-              <MemberMenu /> */}
+              <UserMenu />
+              <MemberMenu />
               <AdminMenu />
             </nav>
           </div>
