@@ -6,8 +6,8 @@ import Loader from "../../../shared/Loader";
 import { useNavigate } from "react-router-dom";
 
 const PaymentInfo = () => {
-  const { user, loading } = useAuth();
-  const [payment, setpaymentInfo] = useState("");
+  const { user, loading, setpaymentinfo } = useAuth();
+
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { data: member = {}, isLoading: memberLoaing } = useQuery({
@@ -35,7 +35,7 @@ const PaymentInfo = () => {
       rent,
       month,
     };
-    setpaymentInfo(Userinfo);
+    setpaymentinfo(Userinfo);
     navigate("/dashboard/payment");
   };
 
