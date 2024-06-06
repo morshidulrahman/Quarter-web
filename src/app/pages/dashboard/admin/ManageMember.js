@@ -13,9 +13,7 @@ const ManageMember = () => {
   } = useQuery({
     queryKey: ["members"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(
-        `${import.meta.env.VITE_API_URL}/members`
-      );
+      const { data } = await axiosSecure.get(`/members`);
       return data;
     },
   });

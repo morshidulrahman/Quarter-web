@@ -1,26 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import CardPayment from "../CardPayment/CardPayment";
+import Loader from "../../shared/Loader";
+import axios from "axios";
 
 const CheckoutFrom = () => {
-  const { paymentinfo } = useAuth();
-  const [rent, setrent] = useState(1000);
+  const { user, loading } = useAuth();
+  const [dataLoading, setdataLoading] = useState(true);
+  const [rent, setrent] = useState();
+  const [date, setdate] = useState();
   const [cuppon, setcuppon] = useState("");
   const axiosSecure = useAxiosSecure();
 
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/payments-info/${user?.email}`
+      );
+      setrent(data.rent);
+      setdate(data.month);
+      setdataLoading(false);
+    };
+    getData();
+  }, [user?.email]);
+
+  if (dataLoading) return <Loader />;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const from = e.target;
+    const cupponvalue = from.cuppon.value;
+    if (cupponvalue === "") return toast.error("Please Provide a token");
+    try {
+      const { data } = await axiosSecure(`/cupon-codes/${cuppon}`);
 
-    const { data } = await axiosSecure(`/cupon-codes/${cuppon}`);
+      const { discount, code } = data;
+      if (cuppon !== code) {
+        return toast.error("Your Cuppon is Invalid");
+      }
+      toast.success(`You got ${discount} discount 🤩`);
+      const newrent = rent - (rent * discount) / 100;
+      setrent(newrent);
 
-    const { discount, code } = data;
-    if (cuppon !== code) {
-      return toast.error("your cuppon is invalid");
+      from.reset();
+    } catch (e) {
+      toast.error(e.message);
+      from.reset();
     }
-    const newrent = rent - (rent * discount) / 100;
-    setrent(newrent);
   };
 
   return (
@@ -48,6 +77,7 @@ const CheckoutFrom = () => {
             </div>
           </div>
         </form>
+        <CardPayment rent={rent} date={date} />
       </div>
     </div>
   );

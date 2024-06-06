@@ -4,9 +4,10 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../shared/Loader";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const PaymentInfo = () => {
-  const { user, loading, setpaymentinfo } = useAuth();
+  const { user, loading } = useAuth();
 
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
@@ -24,19 +25,23 @@ const PaymentInfo = () => {
 
   const { floorNo, apartmentNo, blockName, rent, email } = member;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const month = e.target.month.value;
     const Userinfo = {
       email: user?.email,
-      floorNo,
-      apartmentNo,
-      blockName,
       rent,
       month,
     };
-    setpaymentinfo(Userinfo);
-    navigate("/dashboard/payment");
+    try {
+      const { data } = await axiosSecure.post(`/payments-info`, Userinfo);
+      if (data.insertedId) {
+        navigate("/dashboard/payment");
+      }
+    } catch (e) {
+      toast.error(e.message);
+    }
   };
 
   return (
@@ -109,7 +114,10 @@ const PaymentInfo = () => {
             />
           </div>
           <div className="mt-6">
-            <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ff5a3c] rounded-lg   focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+            <button
+              type="submit"
+              className="w-full px-6 py-2.5 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#ff5a3c] rounded-lg   focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+            >
               Submit
             </button>
           </div>
