@@ -12,6 +12,8 @@ import MakeAnnoucement from "../pages/dashboard/admin/MakeAnnoucement";
 import AnnounceMents from "../dashboard/announcement/AnnounceMents";
 import UserProfile from "../pages/dashboard/user/UserProfile";
 import MemberProfile from "../pages/dashboard/member/MemberProfile";
+import CheckoutFrom from "../dashboard/Payment/CheckoutFrom";
+import PaymentInfo from "../pages/dashboard/member/PaymentInfo";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "member-profile",
         element: <MemberProfile />,
+      },
+      {
+        path: "make-payment",
+        element: <PaymentInfo />,
+      },
+      {
+        path: "payment",
+        element: <CheckoutFrom />,
       },
     ],
   },
