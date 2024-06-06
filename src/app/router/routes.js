@@ -14,6 +14,7 @@ import UserProfile from "../pages/dashboard/user/UserProfile";
 import MemberProfile from "../pages/dashboard/member/MemberProfile";
 import CheckoutFrom from "../dashboard/Payment/CheckoutFrom";
 import PaymentInfo from "../pages/dashboard/member/PaymentInfo";
+import PaymentHistory from "../pages/dashboard/member/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <CheckoutFrom />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
       },
     ],
   },
