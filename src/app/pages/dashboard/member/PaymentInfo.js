@@ -29,6 +29,7 @@ const PaymentInfo = () => {
     e.preventDefault();
 
     const month = e.target.month.value;
+
     const Userinfo = {
       email: user?.email,
       rent,
@@ -106,6 +107,7 @@ const PaymentInfo = () => {
           <div className="mt-4">
             <label className="block text-base text-gray-800">Month</label>
             <input
+              defaultValue={Date.now()}
               required
               name="month"
               placeholder="select a month"

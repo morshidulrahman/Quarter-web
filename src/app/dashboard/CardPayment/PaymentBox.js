@@ -14,7 +14,7 @@ const PaymentBox = ({ rent, date }) => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { user, loading } = useAuth();
-
+  const navigate = useNavigate();
   let totalPrice = rent || 0;
 
   useEffect(() => {
@@ -82,6 +82,7 @@ const PaymentBox = ({ rent, date }) => {
         const res = await axiosSecure.post("/payments", payment);
         // refetch();
         if (res.data.insertedId) {
+          navigate("/dashboard/payment-history");
           toast.success("Payment successfully");
         }
       }

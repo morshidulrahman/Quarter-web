@@ -4,13 +4,12 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loader from "../../../shared/Loader";
 import CupponTable from "../../../dashboard/table/CupponTable";
 import { useQuery } from "@tanstack/react-query";
-
+import CupponEditModal from "../../../components/Modal/cupponEditModal";
 const ManageCuppon = () => {
   const [isOpen, setisOpen] = useState(false);
+  const [id, setId] = useState();
+  const [isEditOpen, setisEditOpen] = useState(false);
   const axiosSecure = useAxiosSecure();
-  const closeModal = () => {
-    setisOpen(false);
-  };
 
   const {
     data: cuppons = [],
@@ -27,6 +26,19 @@ const ManageCuppon = () => {
   });
 
   if (isLoading) return <Loader />;
+
+  const closeEditModal = () => {
+    setisEditOpen(false);
+  };
+
+  const closeModal = () => {
+    setisOpen(false);
+  };
+
+  const handleButton = (id) => {
+    setId(id);
+    setisEditOpen(true);
+  };
 
   return (
     <section className="container px-4 mx-auto">
@@ -76,11 +88,26 @@ const ManageCuppon = () => {
                         </span>
                       </div>
                     </th>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                    >
+                      <div className="flex items-center gap-x-3">
+                        <span className="text-gray-900 font-semibold">
+                          Action
+                        </span>
+                      </div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 ">
                   {cuppons.map((cuppon) => (
-                    <CupponTable cuppon={cuppon} key={cuppon._id} />
+                    <CupponTable
+                      cuppon={cuppon}
+                      key={cuppon._id}
+                      setisOpen={setisOpen}
+                      handleButton={handleButton}
+                    />
                   ))}
                 </tbody>
               </table>
@@ -88,8 +115,14 @@ const ManageCuppon = () => {
           </div>
         </div>
       </div>
-
       <CupponModal closeModal={closeModal} isOpen={isOpen} refetch={refetch} />
+
+      <CupponEditModal
+        closeModal={closeEditModal}
+        isOpen={isEditOpen}
+        refetch={refetch}
+        id={id}
+      />
     </section>
   );
 };

@@ -28,7 +28,7 @@ const Hero = () => {
                 direction="up"
               >
                 <h2 className="capitalize text-5xl  md:text-6xl font-bold text-white w-[60%] mx-auto text-center">
-                  Find Your Dream house by us
+                  Find Your Dream Apartment by us
                 </h2>
                 <p className=" text-white py-4  w-[60%] mx-auto text-center">
                   Over 39,000 people work for us in more than 70 countries all
@@ -52,7 +52,7 @@ const Hero = () => {
                 direction="up"
               >
                 <h2 className="capitalize text-5xl  md:text-6xl font-bold text-white w-[60%] mx-auto text-center">
-                  Find Your Dream house by us
+                  Find Your Dream Apartment by us
                 </h2>
                 <p className=" text-white py-4  w-[60%] mx-auto text-center">
                   Over 39,000 people work for us in more than 70 countries all
@@ -76,7 +76,7 @@ const Hero = () => {
                 direction="up"
               >
                 <h2 className="capitalize text-5xl  md:text-6xl font-bold text-white w-[60%] mx-auto text-center">
-                  Find Your Dream house by us
+                  Find Your Dream Apartment by us
                 </h2>
                 <p className=" text-white py-4  w-[60%] mx-auto text-center">
                   Over 39,000 people work for us in more than 70 countries all
