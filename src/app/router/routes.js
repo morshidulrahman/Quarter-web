@@ -15,6 +15,7 @@ import MemberProfile from "../pages/dashboard/member/MemberProfile";
 import CheckoutFrom from "../dashboard/Payment/CheckoutFrom";
 import PaymentInfo from "../pages/dashboard/member/PaymentInfo";
 import PaymentHistory from "../pages/dashboard/member/PaymentHistory";
+import AdminProfile from "../pages/dashboard/admin/AdminProfile";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <h1>hello i ma sdasdlhf</h1>,
+      },
+      {
+        path: "admin-profile",
+        element: <AdminProfile />,
       },
       {
         path: "agreement-request",

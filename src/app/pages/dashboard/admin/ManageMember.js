@@ -3,22 +3,26 @@ import React from "react";
 import Loader from "../../../shared/Loader";
 import ManageTableRow from "../../../dashboard/table/ManageTableRow";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const ManageMember = () => {
   const axiosSecure = useAxiosSecure();
+  const { user, loading } = useAuth();
+
   const {
     data: members = [],
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["members"],
+    queryKey: ["members", user?.email],
+    enabled: !loading || !!user?.email,
     queryFn: async () => {
       const { data } = await axiosSecure.get(`/members`);
       return data;
     },
   });
 
-  if (isLoading) return <Loader />;
+  if (isLoading || loading) return <Loader />;
 
   return (
     <section className="container px-4 mx-auto">

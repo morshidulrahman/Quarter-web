@@ -14,9 +14,7 @@ const MemberProfile = () => {
   const { data: member = {}, isLoading: memberLoaing } = useQuery({
     queryKey: ["members", user?.email],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(
-        `${import.meta.env.VITE_API_URL}/member/${user?.email}`
-      );
+      const { data } = await axiosSecure.get(`/member/${user?.email}`);
       return data;
     },
   });
