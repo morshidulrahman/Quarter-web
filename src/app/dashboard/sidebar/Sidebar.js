@@ -8,10 +8,9 @@ import UserMenu from "../Menu/UserMenu";
 import AdminMenu from "../Menu/AdminMenu";
 import MemberMenu from "../Menu/MemberMenu";
 import useRole from "../../hooks/useRole";
-import Loader from "../../shared/Loader";
 
 const Sidebar = () => {
-  const { logOut } = useAuth();
+  const { Logout } = useAuth();
   const [isActive, setActive] = useState(false);
   const [role, isLoading] = useRole();
   const [toggle, setToggle] = useState(false);
@@ -79,7 +78,7 @@ const Sidebar = () => {
         <div>
           <hr />
           <button
-            onClick={logOut}
+            onClick={Logout}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-[#ff593cf4]   hover:text-white transition-colors duration-300 transform"
           >
             <GrLogout className="w-5 h-5" />

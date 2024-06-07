@@ -16,6 +16,10 @@ import CheckoutFrom from "../dashboard/Payment/CheckoutFrom";
 import PaymentInfo from "../pages/dashboard/member/PaymentInfo";
 import PaymentHistory from "../pages/dashboard/member/PaymentHistory";
 import AdminProfile from "../pages/dashboard/admin/AdminProfile";
+import Dashboard from "../pages/dashboard/welcome/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import MemberRoute from "./MemberRoute";
 
 const router = createBrowserRouter([
   {
@@ -46,51 +50,117 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h1>hello i ma sdasdlhf</h1>,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "admin-profile",
-        element: <AdminProfile />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AdminProfile />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "agreement-request",
-        element: <AgrementRequest />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AgrementRequest />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-members",
-        element: <ManageMember />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageMember />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-cupons",
-        element: <ManageCuppon />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <ManageCuppon />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "make-announcement",
-        element: <MakeAnnoucement />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <MakeAnnoucement />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "announcement",
-        element: <AnnounceMents />,
+        element: (
+          <PrivateRoute>
+            <AnnounceMents />
+          </PrivateRoute>
+        ),
       },
       {
         path: "user-profile",
-        element: <UserProfile />,
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "member-profile",
-        element: <MemberProfile />,
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <MemberProfile />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "make-payment",
-        element: <PaymentInfo />,
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <PaymentInfo />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "payment",
-        element: <CheckoutFrom />,
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <CheckoutFrom />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "payment-history",
-        element: <PaymentHistory />,
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <PaymentHistory />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
       },
     ],
   },
