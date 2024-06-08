@@ -4,11 +4,7 @@ import React from "react";
 import Loader from "../../shared/Loader";
 
 const CupponBox = () => {
-  const {
-    data: cuppons = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: cuppons = [], isLoading } = useQuery({
     queryKey: ["cuppons"],
     queryFn: async () => {
       const { data } = await axios.get(

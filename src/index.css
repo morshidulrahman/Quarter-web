@@ -25,3 +25,8 @@
 /* ::-webkit-scrollbar{
     display: none;
 } */
+
+.leaflet-container{
+    height: 480px;
+    width: 100%;
+}

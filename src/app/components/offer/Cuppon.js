@@ -12,7 +12,7 @@ const Cuppon = () => {
   return (
     <Container>
       <section className=" py-16">
-        <h2 className="font-bold pb-10 text-center text-4xl font-raleway">
+        <h2 className="font-bold pb-10 text-center text-4xl  ">
           Best offers for you
         </h2>
         <div className="gap-8 w-full grid lg:grid-cols-2 mt-5 grid-cols-1">
