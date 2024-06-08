@@ -1,14 +1,16 @@
 import React from "react";
 import { TimeChange } from "../../utils/TimeChange";
 import toast from "react-hot-toast";
-import axios from "axios";
+
 import useAxiosCommon from "../../hooks/useAxiosCommon";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AgrementTableRow = ({ agrements, refetch }) => {
   const { name, email, floorNo, apartmentNo, blockName, rent, time } =
     agrements;
   const agrementTime = TimeChange(time);
   const axiosCommon = useAxiosCommon();
+  const axiosSecure = useAxiosSecure();
 
   const memberaccept = async () => {
     const userInfo = {
@@ -33,7 +35,7 @@ const AgrementTableRow = ({ agrements, refetch }) => {
     };
 
     try {
-      const { data } = await axiosCommon.patch(
+      const { data } = await axiosSecure.patch(
         `/agements-user/${email}`,
         userInfo
       );
@@ -54,7 +56,7 @@ const AgrementTableRow = ({ agrements, refetch }) => {
     };
 
     try {
-      const { data } = await axiosCommon.patch(
+      const { data } = await axiosSecure.patch(
         `/agements-user/${email}`,
         userInfo
       );

@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import auth from "../firebase/firebase";
 import axios from "axios";
+import useAxiosCommon from "../hooks/useAxiosCommon";
 
 export const AuthContext = createContext();
 
@@ -17,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setloading] = useState(true);
   const [user, setUser] = useState(null);
   const [paymentinfo, setpaymentinfo] = useState(null);
+  const axiosCommon = useAxiosCommon();
 
   const provider = new GoogleAuthProvider();
 
@@ -65,8 +67,18 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         saveUser(currentUser);
+        const userinfo = { email: currentUser?.email };
+
+        axiosCommon.post("/jwt", userinfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access_token", res.data.token);
+            setloading(false);
+          }
+        });
+      } else {
+        localStorage.removeItem("access_token");
+        setloading(false);
       }
-      setloading(false);
     });
     return () => {
       return unsubscribe();

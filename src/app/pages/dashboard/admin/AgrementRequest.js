@@ -3,8 +3,10 @@ import axios from "axios";
 import React from "react";
 import AgrementTableRow from "../../../dashboard/table/AgrementTableRow";
 import Loader from "../../../shared/Loader";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AgrementRequest = () => {
+  const axiosSecure = useAxiosSecure();
   const {
     data: agrementList = [],
     isLoading,
@@ -12,9 +14,7 @@ const AgrementRequest = () => {
   } = useQuery({
     queryKey: ["agrementReq"],
     queryFn: async () => {
-      const { data } = await axios(
-        `${import.meta.env.VITE_API_URL}/agreementlists`
-      );
+      const { data } = await axiosSecure(`/agreementlists`);
       return data;
     },
   });
