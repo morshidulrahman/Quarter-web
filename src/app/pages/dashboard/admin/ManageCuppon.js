@@ -18,9 +18,7 @@ const ManageCuppon = () => {
   } = useQuery({
     queryKey: ["cuppons"],
     queryFn: async () => {
-      const { data } = await axiosSecure.get(
-        `${import.meta.env.VITE_API_URL}/cupon-codes`
-      );
+      const { data } = await axiosSecure.get(`/cupon-codes`);
       return data;
     },
   });

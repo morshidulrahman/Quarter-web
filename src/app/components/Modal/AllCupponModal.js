@@ -1,3 +1,5 @@
+import React from "react";
+import CupponBox from "../offer/CupponBox";
 import {
   Dialog,
   Transition,
@@ -6,10 +8,7 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { Fragment } from "react";
-
-import EditCuppon from "../cuppon/EditCuppon";
-
-const CupponEditModal = ({ closeModal, isOpen, refetch, id }) => {
+const AllCupponModal = ({ closeModal, isOpen }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -41,16 +40,12 @@ const CupponEditModal = ({ closeModal, isOpen, refetch, id }) => {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900 text-center"
                 >
-                  Edit Cuppon
+                  All cuppon
                 </DialogTitle>
                 <div className="mt-4">
-                  <EditCuppon
-                    refetch={refetch}
-                    id={id}
-                    closeModal={closeModal}
-                  />
+                  <CupponBox />
                 </div>
-                <hr className="mt-4 " />
+
                 <div className="flex mt-2 justify-end">
                   <button
                     type="button"
@@ -69,4 +64,4 @@ const CupponEditModal = ({ closeModal, isOpen, refetch, id }) => {
   );
 };
 
-export default CupponEditModal;
+export default AllCupponModal;

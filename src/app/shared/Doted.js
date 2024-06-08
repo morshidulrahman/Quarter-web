@@ -4,7 +4,7 @@ const Doted = ({ name, value }) => {
   return (
     <div className="flex gap-3">
       <span className="font-semibold block md:w-[20%] w-[30%]">{name}</span>
-      <span className="block md:hidden">........................</span>
+      <span className="block md:hidden">..............................</span>
       <span className="hidden md:block">
         {" "}
         .............................................................................

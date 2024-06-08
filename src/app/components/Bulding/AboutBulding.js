@@ -6,7 +6,7 @@ const AboutBulding = () => {
   return (
     <Container>
       <div className="py-16">
-        <h1 className="text-center text-3xl font-bold capitalize mb-10">
+        <h1 className="text-center text-3xl font-bold capitalize mb-16">
           About the building
         </h1>
         <div className="flex justify-between gap-5 flex-col lg:flex-row">
