@@ -8,9 +8,10 @@ import UserMenu from "../Menu/UserMenu";
 import AdminMenu from "../Menu/AdminMenu";
 import MemberMenu from "../Menu/MemberMenu";
 import useRole from "../../hooks/useRole";
+import Loader from "../../shared/Loader";
 
 const Sidebar = () => {
-  const { Logout } = useAuth();
+  const { Logout, loading } = useAuth();
   const [isActive, setActive] = useState(false);
   const [role, isLoading] = useRole();
   const [toggle, setToggle] = useState(false);

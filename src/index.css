@@ -30,3 +30,6 @@
     height: 480px;
     width: 100%;
 }
+.leaflet-container{
+    z-index: 0;
+}

@@ -10,7 +10,7 @@ const Navbar = () => {
   const { user, Logout } = useAuth();
 
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div className="fixed w-full bg-white z-50 shadow-sm">
       <div className="py-4 border-b-[1px]">
         <Container>
           <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
@@ -45,19 +45,12 @@ const Navbar = () => {
                 </div>
               </div>
               {isOpen && (
-                <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top-12 text-sm">
+                <div className="absolute rounded-xl shadow-md w-[40vw] md:w-[20vw] lg:w-[12vw] bg-white overflow-hidden right-0 top-12 text-sm">
                   <div className="flex flex-col cursor-pointer">
-                    <Link
-                      to="/"
-                      className="block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold"
-                    >
-                      Home
-                    </Link>
-
                     {user ? (
                       <>
-                        <Link className="block   px-4 py-3 hover:bg-neutral-100 transition font-semibold">
-                          Morshidul
+                        <Link className="block px-4 py-3 hover:bg-neutral-100 transition font-semibold">
+                          {user?.displayName}
                         </Link>
                         <Link
                           to="/dashboard"

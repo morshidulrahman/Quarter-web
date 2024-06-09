@@ -84,7 +84,7 @@ const Appertment = () => {
               onClick={() => handlePagenation(item)}
               key={i}
               className={`hidden px-4 py-2 mx-1 ${
-                currentPage == item ? "bg-[#ff593cfd] text-white" : ""
+                currentPage == item ? "bg-[#ff593cf6] text-white" : ""
               } text-gray-700 transition-colors duration-300 transform bg-gray-100 rounded-md sm:inline hover:bg-[#ff5a3c] hover:text-white`}
             >
               {item}
@@ -94,7 +94,7 @@ const Appertment = () => {
           <button
             disabled={currentPage === numberofPages}
             onClick={() => handlePagenation(currentPage + 1)}
-            className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md   hover:bg-[#ff593cf4] hover:text-white disabled:cursor-not-allowed "
+            className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md hover:bg-[#ff593cf4] hover:text-white disabled:cursor-not-allowed "
           >
             <div className="flex items-center -mx-1">
               <span className="mx-1">Next</span>
