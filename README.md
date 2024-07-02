@@ -6,7 +6,7 @@
 
 ```bash
 # Clone this project
-$ git clone [https://github.com/maurodesouza/profile-readme-generator](https://github.com/morshidulrahman/Quarter-web.git)
+$ git clone https://github.com/morshidulrahman/Quarter-web.git
 
 # Access
 $ cd Quarter-web
