@@ -2,12 +2,14 @@
 
 # https://quater-morshidul.netlify.app/
 
+# To Run Local
+
 ```bash
 # Clone this project
-$ git clone https://github.com/maurodesouza/profile-readme-generator
+$ git clone [https://github.com/maurodesouza/profile-readme-generator](https://github.com/morshidulrahman/Quarter-web.git)
 
 # Access
-$ cd profile-readme-generator
+$ cd Quarter-web
 
 # Install dependencies
 $ yarn
